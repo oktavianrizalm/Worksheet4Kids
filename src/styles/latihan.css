@@ -1,0 +1,669 @@
+/* ==========================================================================
+   LATIHAN CSS - BUBBLY NEOBRUTALISM GAME VIEWPORT (Google Stitch Style)
+   ========================================================================== */
+
+.layar-latihan {
+  width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  touch-action: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #FFFDF9 0%, #FFF7ED 50%, #F0FDF4 100%);
+  padding: max(10px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  box-sizing: border-box;
+}
+
+/* Header Permainan */
+.latihan-header-stitch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 12px;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.btn-latihan-kembali {
+  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.1s ease;
+}
+
+.btn-latihan-kembali:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+/* Pelacak Tantangan Tengah */
+.latihan-progress-tracker {
+  background: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  border-radius: 20px;
+  padding: 5px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.progress-tracker-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.progress-tracker-label {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #64748B;
+  letter-spacing: 0.05em;
+}
+
+.progress-tracker-badge {
+  background: #7C3AED;
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 1px 7px;
+  border-radius: 10px;
+}
+
+.progress-tracker-segments {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.progress-segment {
+  width: 14px;
+  height: 5px;
+  border-radius: 4px;
+  background: #E2E8F0;
+  transition: background-color 0.25s ease;
+}
+
+.progress-segment.selesai {
+  background: #10B981;
+}
+
+.progress-segment.aktif {
+  background: #FBBF24;
+}
+
+/* Header Audio Group */
+.latihan-header-audio-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-latihan-dengarkan {
+  background: #0284C7;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.1s ease;
+}
+
+.btn-latihan-dengarkan:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+.btn-latihan-replay {
+  background: #FEF08A;
+  border: 2px solid #FDE047;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.1s ease;
+}
+
+.btn-latihan-replay:active {
+  transform: scale(0.94);
+}
+
+/* Banner Instruksi Melayang */
+.banner-instruksi-melayang {
+  max-width: 960px;
+  margin: 6px auto 0 auto;
+  background: #FAF5FF;
+  border: 3px solid #D8B4FE;
+  border-radius: 9999px;
+  padding: 10px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: clamp(20px, 2.8vw, 26px);
+  font-weight: 900;
+  color: #6B21A8;
+  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.12);
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 1.35;
+}
+
+.banner-instruksi-melayang [aria-hidden="true"] {
+  font-size: clamp(22px, 3vw, 28px);
+}
+
+/* Area Permainan Tengah */
+.area-permainan-tengah {
+  flex: 1;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 0;
+  overflow: hidden;
+}
+
+/* Kartu Contoh Bubbly */
+.kartu-contoh-stitch {
+  position: relative;
+  background: #FFFFFF;
+  border: 3.5px solid #C084FC;
+  border-radius: 24px;
+  padding: 10px 24px 8px 24px;
+  box-shadow: 0 8px 24px -4px rgba(192, 132, 252, 0.28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  flex-shrink: 0;
+}
+
+.kartu-contoh-badge {
+  position: absolute;
+  top: -11px;
+  background: #7E22CE;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px rgba(126, 34, 206, 0.3);
+}
+
+.kartu-contoh-label {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #6B21A8;
+  text-align: center;
+}
+
+/* Kisi Kartu Pilihan Jawaban */
+.grid-pilihan-stitch {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.grid-pilihan-stitch.grid-4 {
+  grid-template-columns: repeat(2, minmax(140px, 320px));
+  max-width: 680px;
+}
+
+.grid-pilihan-stitch.grid-2 {
+  grid-template-columns: repeat(2, minmax(160px, 320px));
+  max-width: 660px;
+  gap: 18px;
+}
+
+.grid-pilihan-stitch.grid-3 {
+  grid-template-columns: repeat(3, minmax(120px, 220px));
+  max-width: 680px;
+  gap: 14px;
+}
+
+.grid-pilihan-stitch.grid-8 {
+  grid-template-columns: repeat(4, minmax(100px, 180px));
+  max-width: 780px;
+  gap: 8px;
+}
+
+/* Kartu Pilihan Chunky */
+.kartu-pilihan-stitch {
+  background: #FFFFFF;
+  border-radius: 24px;
+  border-style: solid;
+  border-width: 3.5px;
+  box-shadow: 0 6px 0px 0px rgba(0, 0, 0, 0.04), 0 10px 18px -3px rgba(0, 0, 0, 0.06);
+  padding: 10px 8px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease, opacity 0.5s ease;
+  position: relative;
+  min-height: 105px;
+}
+
+.kartu-pilihan-stitch:active {
+  transform: translateY(3px) scale(0.98);
+  box-shadow: 0 2px 0px 0px rgba(0, 0, 0, 0.03);
+}
+
+.kartu-pilihan-label {
+  margin-top: 5px;
+  font-size: 13.5px;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* Bilah Bawah Permainan */
+.latihan-footer-stitch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 12px;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.toast-semangat-stitch {
+  background: #FEF9C3;
+  border: 2px solid #FDE047;
+  border-radius: 18px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #854D0E;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(253, 224, 71, 0.2);
+}
+
+.latihan-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-bantuan-stitch {
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  color: #78350F;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 3px 8px rgba(245, 158, 11, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.1s ease;
+}
+
+.btn-bantuan-stitch:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+.btn-lewati-stitch {
+  background: linear-gradient(135deg, #A855F7 0%, #9333EA 100%);
+  color: #FFFFFF;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 3px 8px rgba(168, 85, 247, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.1s ease;
+}
+
+.btn-lewati-stitch:active {
+  transform: scale(0.96) translateY(2px);
+}
+
+/* Tombol Angka Chunky (Latihan #9) */
+.tombol-angka-chunky {
+  font-family: var(--font-family);
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--obj-stroke);
+  user-select: none;
+  -webkit-user-select: none;
+  line-height: 1;
+}
+
+/* Slot Placeholder Tanda Tanya Pola (Latihan #7) */
+.slot-placeholder-pola {
+  width: 68px;
+  height: 68px;
+  border: 3px dashed #C084FC;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-size: 36px;
+  font-weight: 900;
+  color: #7E22CE;
+  background-color: #FAF5FF;
+}
+
+/* Penanda Lingkaran Stempel (Latihan #10) */
+.slot-terlingkari::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  border: 5px solid #F43F5E;
+  border-radius: 20px;
+  pointer-events: none;
+  animation: stempelLingkaran 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes stempelLingkaran {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Slot Pilihan Backward Compatible */
+.slot-pilihan {
+  width: 100%;
+  height: 100%;
+  min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
+  background: var(--work-area-bg);
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--app-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  position: relative;
+  transition: opacity 0.6s ease;
+}
+
+.slot-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   ANIMASI UMPAN BALIK (Pop-Scale & Wobble)
+   Menggunakan transform/opacity murni agar bebas layout repaint
+   ========================================================================== */
+
+.anim-pop-scale {
+  animation: popScale 320ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes popScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.anim-wobble {
+  animation: wobble 400ms ease-in-out forwards;
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-6deg);
+  }
+  40% {
+    transform: rotate(6deg);
+  }
+  60% {
+    transform: rotate(-6deg);
+  }
+  80% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Pulse lembut untuk objek contoh saat scaffolding 3 salah */
+.anim-pulse-contoh {
+  animation: pulseContoh 800ms ease-in-out infinite;
+}
+
+@keyframes pulseContoh {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* Scaffolding 6 salah: peredupan distractor */
+.slot-distractor-dimmed {
+  opacity: 0.35 !important;
+}
+
+/* Prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .anim-pop-scale {
+    animation-duration: 140ms;
+    animation-timing-function: ease-out;
+  }
+  @keyframes popScale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+  }
+  .anim-wobble {
+    animation-duration: 160ms;
+  }
+  @keyframes wobble {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-2deg); }
+  }
+}
+
+/* ==========================================================================
+   LATIHAN #11: IKUTI GARIS (Tracing SVG Canvas)
+   ========================================================================== */
+.area-tracing-svg {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  touch-action: none;
+}
+
+.kanvas-svg-tracing {
+  width: 100%;
+  max-width: 860px;
+  height: 100%;
+  max-height: 480px;
+  background-color: #FFFFFF;
+  border: 3.5px solid #C7D2FE;
+  border-radius: 28px;
+  box-shadow: 0 8px 24px -4px rgba(99, 102, 241, 0.15);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ==========================================================================
+   LATIHAN #12: WARNAI SEPERTI CONTOH (Coloring Canvas)
+   ========================================================================== */
+.area-mewarnai {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  overflow: hidden;
+}
+
+.kontainer-kartu-mewarnai {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 680px;
+  flex: 1;
+}
+
+.kartu-mewarnai {
+  flex: 1;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+  border: 3.5px solid #C084FC;
+  border-radius: 26px;
+  box-shadow: 0 8px 20px -4px rgba(192, 132, 252, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  touch-action: none;
+}
+
+.kartu-mewarnai-label {
+  position: absolute;
+  top: 10px;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #7E22CE;
+  background: #FAF5FF;
+  border: 1.5px solid #D8B4FE;
+  border-radius: 9999px;
+  padding: 2px 10px;
+}
+
+.bar-palet-warna {
+  display: flex;
+  gap: 12px;
+  padding: 10px 16px;
+  background-color: #FEF9C3;
+  border: 2.5px solid #FDE047;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(253, 224, 71, 0.2);
+  max-width: 720px;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.tombol-palet {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  border: 3px solid #1E293B;
+  cursor: pointer;
+  box-shadow: 0 4px 0px 0px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  touch-action: none;
+}
+
+.tombol-palet.terpilih {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 0px 0px rgba(0, 0, 0, 0.25);
+  outline: 3px solid #7C3AED;
+  outline-offset: 2px;
+}

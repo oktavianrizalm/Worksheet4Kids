@@ -1,0 +1,725 @@
+/* ==========================================================================
+   SHELL CSS (Layout Root, Navigasi, Chrome, Safe Area)
+   ========================================================================== */
+
+#app {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.safe-area-container {
+  padding-top: max(12px, env(safe-area-inset-top));
+  padding-right: max(16px, env(safe-area-inset-right));
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  padding-left: max(16px, env(safe-area-inset-left));
+}
+
+/* Beranda Grid */
+.beranda-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 32px;
+}
+
+.beranda-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.beranda-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 720px) {
+  .beranda-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .beranda-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Kartu Latihan di Beranda */
+.kartu-latihan {
+  background: var(--work-area-bg);
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--app-shadow);
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 140px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.kartu-latihan:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--app-shadow-sm);
+}
+
+.kartu-latihan.non-aktif {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+}
+
+.kartu-label {
+  font-size: var(--font-base);
+  font-weight: 800;
+  color: var(--obj-stroke);
+  text-align: center;
+}
+
+/* ==========================================================================
+   GOOGLE STITCH - BUBBLY NEOBRUTALIST BERANDA THEME
+   ========================================================================== */
+
+.beranda-page-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FFFDF9 0%, #FFF5F7 50%, #F0FDF4 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: max(14px, env(safe-area-inset-top));
+  padding-right: max(16px, env(safe-area-inset-right));
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+  padding-left: max(16px, env(safe-area-inset-left));
+  box-sizing: border-box;
+}
+
+/* Header Glassmorphism */
+.beranda-header-stitch {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto 20px auto;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2.5px solid rgba(253, 230, 138, 0.85);
+  border-radius: 24px;
+  padding: 14px 22px;
+  box-shadow: 0 8px 0px 0px rgba(0, 0, 0, 0.05), 0 12px 20px -3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.beranda-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.beranda-brand-badge {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  border: 2px solid #FEF08A;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+  flex-shrink: 0;
+}
+
+.beranda-brand-badge svg {
+  width: 26px;
+  height: 26px;
+  fill: #78350F;
+}
+
+.beranda-brand-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.beranda-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.beranda-title {
+  font-size: clamp(1.2rem, 2.8vw, 1.55rem);
+  font-weight: 900;
+  color: #1E293B;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.pill-seru {
+  background: #EDE9FE;
+  color: #6D28D9;
+  border: 1.5px solid #DDD6FE;
+  font-size: 11px;
+  font-weight: 900;
+  padding: 2px 10px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.beranda-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #64748B;
+  margin: 0;
+}
+
+.beranda-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Sound Toggle Button */
+.btn-sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #FEF9C3;
+  border: 2.5px solid #FDE047;
+  border-radius: 16px;
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  color: #78350F;
+  cursor: pointer;
+  box-shadow: 0 3px 0px 0px rgba(0, 0, 0, 0.05);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s, border-color 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn-sound-toggle:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.btn-sound-toggle.is-muted {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #64748B;
+}
+
+/* Stitch Parental Gate Button */
+.btn-orang-tua-stitch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0F172A;
+  border: 2.5px solid #334155;
+  border-radius: 16px;
+  padding: 8px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  color: #F8FAFC;
+  cursor: pointer;
+  box-shadow: 0 3px 0px 0px rgba(0, 0, 0, 0.18);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  overflow: hidden;
+  min-height: 44px;
+}
+
+.btn-orang-tua-stitch:active {
+  transform: translateY(2px);
+}
+
+.btn-orang-tua-stitch .progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-orang-tua-stitch .progress-ring-circle {
+  stroke-dasharray: 113.1;
+  stroke-dashoffset: 113.1;
+  stroke: #38BDF8;
+  stroke-width: 5;
+  fill: none;
+  transition: stroke-dashoffset 0.15s ease-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.btn-orang-tua-stitch.is-pressing .progress-ring-circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 2500ms linear;
+}
+
+/* Grid & Cards Stitch */
+.beranda-grid-stitch {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  flex: 1;
+}
+
+@media (min-width: 640px) {
+  .beranda-grid-stitch {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .beranda-grid-stitch {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+.kartu-stitch {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 26px;
+  padding: 14px 12px 16px 12px;
+  border-style: solid;
+  border-width: 4px;
+  box-shadow: 0 8px 0px 0px rgba(0, 0, 0, 0.05), 0 12px 20px -3px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  min-height: 175px;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+}
+
+.kartu-stitch:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 0px 0px rgba(0, 0, 0, 0.07), 0 16px 24px -3px rgba(0, 0, 0, 0.09);
+}
+
+.kartu-stitch:active {
+  transform: translateY(4px) scale(0.98);
+  box-shadow: 0 2px 0px 0px rgba(0, 0, 0, 0.04), 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+.kartu-stitch-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.kartu-num-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+  color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+}
+
+.kartu-tag-pill {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.kartu-illustration-wrap {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0 8px 0;
+  pointer-events: none;
+  transition: transform 0.2s ease;
+}
+
+.kartu-stitch:hover .kartu-illustration-wrap {
+  transform: scale(1.08);
+}
+
+.kartu-stitch-title {
+  font-size: 14.5px;
+  font-weight: 900;
+  color: #1E293B;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* Footer Guidance Card & Trust Badges */
+.beranda-footer-stitch {
+  width: 100%;
+  max-width: 1240px;
+  margin: 24px auto 0 auto;
+  background: rgba(238, 242, 255, 0.95);
+  border: 2px solid rgba(199, 210, 254, 0.9);
+  border-radius: 20px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.06);
+}
+
+@media (min-width: 768px) {
+  .beranda-footer-stitch {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.guidance-advisory-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.guidance-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #4F46E5;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.3);
+}
+
+.guidance-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.guidance-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guidance-title {
+  font-size: 13px;
+  font-weight: 900;
+  color: #1E293B;
+}
+
+.guidance-badge-penting {
+  background: #C7D2FE;
+  color: #3730A3;
+  font-size: 9px;
+  font-weight: 900;
+  padding: 1px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.guidance-desc {
+  font-size: 12px;
+  font-weight: 600;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.guidance-desc strong {
+  color: #312E81;
+  font-weight: 800;
+}
+
+.trust-badges-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #E0E7FF;
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748B;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Tombol Area Orang Tua (Long-press 2.5 detik - 4.0a, 4.0c) */
+.btn-orang-tua-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-orang-tua {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--app-surface);
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--app-shadow-sm);
+  padding: 8px 16px;
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--app-text);
+  cursor: pointer;
+  min-height: 48px;
+  user-select: none;
+  touch-action: none;
+  overflow: hidden;
+}
+
+.btn-orang-tua-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Cincin Progres Long-Press Murni CSS Transition (4.0c) */
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.progress-ring-circle {
+  stroke-dasharray: 113.1;
+  stroke-dashoffset: 113.1;
+  stroke: var(--app-border);
+  stroke-width: 6;
+  fill: none;
+  transition: stroke-dashoffset 0.15s ease-out;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.is-pressing .progress-ring-circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 2500ms linear;
+}
+
+/* ==========================================================================
+   LAYAR AREA ORANG TUA (4.0a)
+   ========================================================================== */
+
+.area-orang-tua-container {
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 40px;
+}
+
+.area-orang-tua-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.btn-kembali {
+  background: var(--app-surface);
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--app-shadow-sm);
+  padding: 8px 16px;
+  font-family: var(--font-family);
+  font-size: var(--font-base);
+  font-weight: 800;
+  color: var(--app-text);
+  cursor: pointer;
+  min-height: var(--min-touch-target);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-kembali:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.area-orang-tua-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--app-text);
+  margin: 0;
+}
+
+.area-orang-tua-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.kartu-panduan {
+  background: var(--app-surface);
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--app-shadow);
+  padding: 24px;
+}
+
+.kartu-panduan-judul {
+  font-size: var(--font-lg);
+  font-weight: 800;
+  color: var(--app-text);
+  margin: 0 0 16px 0;
+}
+
+.sakelar-baris {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.sakelar-label {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--app-text);
+  display: block;
+}
+
+.sakelar-keterangan {
+  font-size: var(--font-sm);
+  color: var(--app-text-muted);
+  margin: 4px 0 0 0;
+}
+
+.sakelar-input {
+  width: 28px;
+  height: 28px;
+  accent-color: var(--color-biru);
+  cursor: pointer;
+}
+
+.panduan-keterangan {
+  font-size: var(--font-base);
+  color: var(--app-text);
+  line-height: 1.5;
+  margin: 0 0 16px 0;
+}
+
+.panduan-os {
+  background: var(--app-bg);
+  border: 2px solid var(--app-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.panduan-os-nama {
+  font-size: var(--font-base);
+  font-weight: 800;
+  color: var(--app-text);
+  margin: 0 0 10px 0;
+}
+
+.panduan-langkah {
+  margin: 0;
+  padding-left: 24px;
+  font-size: var(--font-sm);
+  color: var(--app-text);
+  line-height: 1.6;
+}
+
+.kartu-panduan-dev {
+  border-style: dashed;
+}
+
+.dev-info-baris {
+  font-size: var(--font-sm);
+  color: var(--app-text);
+  margin: 6px 0;
+  font-family: monospace;
+}
+
+.area-orang-tua-footer-info {
+  text-align: center;
+  font-size: var(--font-sm);
+  color: var(--app-text-muted);
+  margin-top: 24px;
+}
+

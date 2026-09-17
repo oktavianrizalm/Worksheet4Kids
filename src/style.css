@@ -1,0 +1,404 @@
+/* ==========================================================================
+   RESET & FONDASI STILISTIK (NEUTRAL CHROME, SOLID OFFSET SHADOW)
+   Aturan mengikat: warna pekat HANYA untuk objek jawaban. Semua chrome netral.
+   Area kerja tempat objek ditampilkan SELALU PUTIH di mode terang maupun gelap.
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family, system-ui, -apple-system, sans-serif);
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  padding: 24px 16px;
+  min-height: 100vh;
+}
+
+/* Header & Navigasi Netral */
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto 32px auto;
+  padding-bottom: 16px;
+  border-bottom: 3px solid var(--app-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header-title {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+  font-size: var(--font-base);
+  color: var(--app-text-muted);
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.btn-tab {
+  background: #FFFFFF;
+  color: var(--app-text);
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-md);
+  padding: 10px 20px;
+  font-size: var(--font-base);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--app-shadow-sm);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-tab:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--app-shadow);
+}
+
+.btn-tab.active {
+  background: #22232E;
+  color: #FFFFFF;
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
+/* Container Tab Content */
+.tab-pane {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Kartu Objek (Kanvas Objek Selalu Putih) */
+.object-card {
+  background: var(--work-area-bg); /* Selalu putih murni */
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--app-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.object-svg-container {
+  background: #FFFFFF;
+  border: 2px dashed #E5E7EB;
+  border-radius: var(--radius-sm);
+  width: 110px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.object-card-title {
+  font-size: var(--font-base);
+  font-weight: 800;
+  text-align: center;
+  color: #22232E; /* Selalu kontras di atas kartu putih */
+}
+
+.object-card-meta {
+  font-size: var(--font-sm);
+  color: #6B7280;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 700;
+  border: 2px solid var(--app-border);
+}
+
+.badge-neutral {
+  background: #F3F4F6;
+  color: #22232E;
+}
+
+.badge-siluet {
+  background: #E5E7EB;
+  color: #111827;
+}
+
+.badge-garis {
+  background: #FEF3C7;
+  color: #92400E;
+}
+
+/* Kisi 28 Objek x 3 Mode */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.modes-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.mode-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mode-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #6B7280;
+}
+
+/* Palet Selector */
+.palette-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.palette-swatch-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  border: 3px solid var(--app-border);
+  box-shadow: var(--app-shadow-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.palette-swatch-btn.active {
+  transform: scale(1.1);
+  box-shadow: var(--app-shadow);
+  border-width: 4px;
+}
+
+/* Panel Pengecek Kemiripan */
+.checker-card {
+  background: #FFFFFF;
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--app-shadow);
+  margin-bottom: 24px;
+}
+
+.checker-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.btn-primary-action {
+  background: #FFFFFF;
+  color: #22232E;
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-md);
+  padding: 12px 24px;
+  font-size: var(--font-base);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--app-shadow);
+  min-height: var(--min-touch-target);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary-action:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #22232E;
+}
+
+.btn-primary-action:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #22232E;
+}
+
+.test-results-box {
+  background: #F9FAFB;
+  border: 2px solid var(--app-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  font-family: monospace;
+  font-size: 14px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+/* Panel Penguji Input Sentuh */
+.touch-tester-area {
+  background: #FFFFFF;
+  border: 4px dashed #22232E;
+  border-radius: var(--radius-lg);
+  padding: 32px 20px;
+  text-align: center;
+  margin-bottom: 24px;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.touch-target-button {
+  min-width: 220px;
+  min-height: var(--min-touch-target);
+  background: #FFFFFF;
+  color: #22232E;
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-md);
+  padding: 14px 28px;
+  font-size: var(--font-lg);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: var(--app-shadow);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.touch-target-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--app-shadow-sm);
+}
+
+.tap-indicator {
+  font-size: var(--font-base);
+  font-weight: 700;
+  color: var(--color-hijau);
+  min-height: 24px;
+}
+
+/* Tabel Log Input */
+.log-table-wrapper {
+  background: #FFFFFF;
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  box-shadow: var(--app-shadow-sm);
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-family: monospace;
+}
+
+.log-table th, .log-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #E5E7EB;
+  text-align: left;
+}
+
+.log-table th {
+  background: #F3F4F6;
+  color: #22232E;
+  font-weight: 700;
+  border-bottom: 2px solid var(--app-border);
+}
+
+.verdict-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.verdict-ACCEPTED_TAP {
+  background: #DCFCE7;
+  color: #166534;
+  border: 1px solid #166534;
+}
+
+.verdict-ACCEPTED_DOWN {
+  background: #DBEAFE;
+  color: #1E40AF;
+  border: 1px solid #1E40AF;
+}
+
+.verdict-REJECTED_PALM_DOWN, .verdict-REJECTED_PALM_UP {
+  background: #FFEDD5;
+  color: #9A3412;
+  border: 1px solid #9A3412;
+}
+
+.verdict-REJECTED_DEBOUNCE {
+  background: #F3E8FF;
+  color: #6B21A8;
+  border: 1px solid #6B21A8;
+}
+
+.verdict-REJECTED_MISMATCH {
+  background: #FCE7F3;
+  color: #9D174D;
+  border: 1px solid #9D174D;
+}
+
+.verdict-REJECTED_CANCEL {
+  background: #F3F4F6;
+  color: #4B5563;
+  border: 1px solid #4B5563;
+}
+
+/* Target Uji Ukuran Kontak Nyata 96x96 px */
+.contact-box-target {
+  width: 96px;
+  height: 96px;
+  background: #FFFFFF;
+  border: 3px solid var(--app-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--app-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  touch-action: none;
+  transition: transform 0.08s ease;
+}
+
+.contact-box-target:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--app-shadow-sm);
+}
