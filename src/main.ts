@@ -1,7 +1,7 @@
 import './styles/reset.css';
 import './styles/shell.css';
 import './styles/latihan.css';
-import { injectTokens } from './tokens';
+import { injectTokens, terapkanModeGelap } from './tokens';
 import { PengelolaLayar } from './shell/layar';
 import { LayarBeranda } from './beranda/beranda';
 import { LayarAreaOrangTua } from './beranda/area-orang-tua';
@@ -13,9 +13,13 @@ import { MesinIkutiGaris } from './latihan/mesin-ikuti-garis';
 import { MesinWarnaiContoh } from './latihan/mesin-warnai-contoh';
 import { ambilGeneratorLatihan } from './latihan/daftar';
 import { Layar } from './shell/tipe';
+import { getPreferensiOrangTua } from './preferensi';
 
 // 1. Suntikkan CSS variables dari single source of truth tokens desain
 injectTokens();
+
+// 1b. Terapkan mode gelap jika sudah pernah diaktifkan oleh orang tua
+terapkanModeGelap(getPreferensiOrangTua().modeGelap);
 
 const appRoot = document.getElementById('app');
 if (!appRoot) {

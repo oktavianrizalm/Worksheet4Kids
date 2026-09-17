@@ -723,3 +723,156 @@
   margin-top: 24px;
 }
 
+/* ==========================================================================
+   MODE GELAP — BERANDA & AREA ORANG TUA
+   Area kanvas objek (kartu latihan illustration) TETAP PUTIH.
+   Hanya chrome, latar, header, footer yang berubah gelap.
+   ========================================================================== */
+
+html.mode-gelap .beranda-page-wrapper {
+  background: linear-gradient(135deg, #1A1B2E 0%, #1E1F33 50%, #1A2332 100%);
+}
+
+html.mode-gelap .beranda-header-stitch {
+  background: rgba(30, 31, 45, 0.92);
+  border-color: rgba(100, 90, 60, 0.5);
+  box-shadow: 0 8px 0px 0px rgba(0, 0, 0, 0.15), 0 12px 20px -3px rgba(0, 0, 0, 0.2);
+}
+
+html.mode-gelap .beranda-title {
+  color: #F1F5F9;
+}
+
+html.mode-gelap .beranda-subtitle {
+  color: #94A3B8;
+}
+
+html.mode-gelap .pill-seru {
+  background: #312E81;
+  color: #C4B5FD;
+  border-color: #4C1D95;
+}
+
+html.mode-gelap .btn-sound-toggle {
+  background: #332E1C;
+  border-color: #78650F;
+  color: #FDE68A;
+}
+
+html.mode-gelap .btn-sound-toggle.is-muted {
+  background: #1E293B;
+  border-color: #334155;
+  color: #94A3B8;
+}
+
+html.mode-gelap .kartu-stitch {
+  background: #2A2D3A;
+  box-shadow: 0 8px 0px 0px rgba(0, 0, 0, 0.15), 0 12px 20px -3px rgba(0, 0, 0, 0.2);
+}
+
+html.mode-gelap .kartu-stitch:hover {
+  box-shadow: 0 12px 0px 0px rgba(0, 0, 0, 0.18), 0 16px 24px -3px rgba(0, 0, 0, 0.25);
+}
+
+html.mode-gelap .kartu-stitch:active {
+  box-shadow: 0 2px 0px 0px rgba(0, 0, 0, 0.1), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+html.mode-gelap .kartu-stitch-title {
+  color: #F1F5F9;
+}
+
+html.mode-gelap .kartu-illustration-wrap {
+  /* Menjaga ilustrasi SVG tetap terang & kontras di atas kartu gelap */
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 4px;
+}
+
+/* Beranda Footer Guidance */
+html.mode-gelap .beranda-footer-stitch {
+  background: rgba(30, 31, 50, 0.9);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+html.mode-gelap .guidance-title {
+  color: #E2E8F0;
+}
+
+html.mode-gelap .guidance-desc {
+  color: #94A3B8;
+}
+
+html.mode-gelap .guidance-desc strong {
+  color: #A5B4FC;
+}
+
+html.mode-gelap .guidance-badge-penting {
+  background: #312E81;
+  color: #A5B4FC;
+}
+
+html.mode-gelap .trust-badges-pill {
+  background: rgba(40, 42, 54, 0.85);
+  border-color: #334155;
+  color: #94A3B8;
+}
+
+/* Area Orang Tua */
+html.mode-gelap .area-orang-tua-container {
+  background: transparent;
+}
+
+html.mode-gelap .kartu-panduan {
+  background: #282A36;
+  border-color: #3A3D4E;
+  box-shadow: 4px 4px 0px #0A0B10;
+}
+
+html.mode-gelap .kartu-panduan-judul {
+  color: #F1F5F9;
+}
+
+html.mode-gelap .panduan-keterangan {
+  color: #CBD5E1;
+}
+
+html.mode-gelap .panduan-os {
+  background: #1E1F29;
+  border-color: #3A3D4E;
+}
+
+html.mode-gelap .panduan-os-nama {
+  color: #E2E8F0;
+}
+
+html.mode-gelap .panduan-langkah {
+  color: #CBD5E1;
+}
+
+html.mode-gelap .btn-kembali {
+  background: #282A36;
+  color: #F1F5F9;
+  border-color: #3A3D4E;
+  box-shadow: 2px 2px 0px #0A0B10;
+}
+
+html.mode-gelap .sakelar-label {
+  color: #E2E8F0;
+}
+
+html.mode-gelap .sakelar-keterangan {
+  color: #94A3B8;
+}
+
+html.mode-gelap .log-table th {
+  background: #1E1F29;
+  color: #E2E8F0;
+}
+
+html.mode-gelap .log-table td {
+  color: #CBD5E1;
+  border-bottom-color: #3A3D4E;
+}
+

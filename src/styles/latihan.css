@@ -667,3 +667,78 @@
   outline: 3px solid #7C3AED;
   outline-offset: 2px;
 }
+
+/* ==========================================================================
+   MODE GELAP — LAYAR LATIHAN (EXERCISE SCREENS)
+   Kartu contoh & kartu pilihan TETAP PUTIH agar gambar SVG kontras.
+   ========================================================================== */
+
+html.mode-gelap .layar-latihan {
+  background: linear-gradient(135deg, #1A1B2E 0%, #1E1F33 50%, #1A2332 100%);
+}
+
+html.mode-gelap .latihan-progress-tracker {
+  background: #282A36;
+  border-color: #3A3D4E;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+html.mode-gelap .progress-tracker-label {
+  color: #94A3B8;
+}
+
+html.mode-gelap .progress-segment {
+  background: #3A3D4E;
+}
+
+html.mode-gelap .banner-instruksi-melayang {
+  background: #2D1B4E;
+  border-color: #6B21A8;
+  color: #E9D5FF;
+  box-shadow: 0 4px 14px rgba(107, 33, 168, 0.25);
+}
+
+/* Kartu contoh: TETAP PUTIH untuk kontras objek SVG */
+/* html.mode-gelap .kartu-contoh-stitch { background: #FFFFFF; } — sudah putih default */
+
+/* Kartu pilihan: TETAP PUTIH untuk kontras objek SVG */
+/* html.mode-gelap .kartu-pilihan-stitch { background: #FFFFFF; } — sudah putih default */
+
+html.mode-gelap .toast-semangat-stitch {
+  background: #332E1C;
+  border-color: #78650F;
+  color: #FDE68A;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Tracing Canvas: TETAP PUTIH untuk menggambar */
+/* html.mode-gelap .kanvas-svg-tracing { background-color: #FFFFFF; } — sudah putih default */
+
+html.mode-gelap .kanvas-svg-tracing {
+  border-color: #4338CA;
+  box-shadow: 0 8px 24px -4px rgba(67, 56, 202, 0.3);
+}
+
+/* Coloring: tetap putih tapi border gelap */
+html.mode-gelap .kartu-mewarnai {
+  border-color: #6B21A8;
+  box-shadow: 0 8px 20px -4px rgba(107, 33, 168, 0.35);
+}
+
+html.mode-gelap .kartu-mewarnai-label {
+  background: #2D1B4E;
+  color: #D8B4FE;
+  border-color: #6B21A8;
+}
+
+html.mode-gelap .bar-palet-warna {
+  background-color: #332E1C;
+  border-color: #78650F;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+html.mode-gelap .slot-placeholder-pola {
+  background-color: #2D1B4E;
+  border-color: #6B21A8;
+  color: #D8B4FE;
+}

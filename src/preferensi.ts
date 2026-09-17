@@ -13,10 +13,14 @@
 
 export interface PreferensiOrangTua {
   readonly audioInstruksiAktif: boolean;
+  readonly modeGelap: boolean;
+  readonly musikAktif: boolean;
 }
 
 export const PREFERENSI_DEFAULT: PreferensiOrangTua = {
   audioInstruksiAktif: true,
+  modeGelap: false,
+  musikAktif: true,
 };
 
 export const KUNCI_STORAGE_PREFERENSI = 'prefOrtu';
@@ -26,7 +30,11 @@ let stateInMemory: PreferensiOrangTua = { ...PREFERENSI_DEFAULT };
 function validasiBentukPreferensi(data: unknown): data is PreferensiOrangTua {
   if (typeof data !== 'object' || data === null) return false;
   const p = data as Record<string, unknown>;
-  return typeof p.audioInstruksiAktif === 'boolean';
+  if (typeof p.audioInstruksiAktif !== 'boolean') return false;
+  // modeGelap & musikAktif bersifat opsional untuk backward compatibility
+  if ('modeGelap' in p && typeof p.modeGelap !== 'boolean') return false;
+  if ('musikAktif' in p && typeof p.musikAktif !== 'boolean') return false;
+  return true;
 }
 
 function muatPreferensi(): PreferensiOrangTua {
@@ -42,6 +50,8 @@ function muatPreferensi(): PreferensiOrangTua {
     if (validasiBentukPreferensi(parsed)) {
       stateInMemory = {
         audioInstruksiAktif: parsed.audioInstruksiAktif,
+        modeGelap: typeof parsed.modeGelap === 'boolean' ? parsed.modeGelap : false,
+        musikAktif: typeof parsed.musikAktif === 'boolean' ? parsed.musikAktif : true,
       };
     } else {
       // Nilai korup atau format tak dikenal -> reset ke default

@@ -4,6 +4,9 @@ import { registerTapTarget } from '../input/touch';
 import { renderObjek } from '../graphics/render-aman';
 import { ObjectId, RenderMode } from '../graphics/types';
 import { PaletteColorKey } from '../tokens';
+import { terapkanModeGelap, isModeGelap } from '../tokens';
+import { simpanPreferensiOrangTua } from '../preferensi';
+import { isMusikLatarAktif, setMusikLatarAktif } from '../audio/musik-latar';
 import { pasangLongPress } from './long-press';
 
 export interface OpsiBeranda {
@@ -235,6 +238,7 @@ export class LayarBeranda implements Layar {
     });
 
     const audioAktif = isAudioInstruksiAktif();
+    const gelapAktif = isModeGelap();
 
     host.innerHTML = `
       <div class="beranda-page-wrapper">
@@ -256,7 +260,7 @@ export class LayarBeranda implements Layar {
             </div>
           </div>
 
-          <!-- Aksi Header: Sakelar Audio & Area Orang Tua -->
+          <!-- Aksi Header: Sakelar Audio, Mode Gelap & Area Orang Tua -->
           <div class="beranda-header-actions">
             <!-- Sakelar Audio Instruksi -->
             <button
@@ -267,6 +271,17 @@ export class LayarBeranda implements Layar {
             >
               <span aria-hidden="true" style="font-size: 15px;">${audioAktif ? '🔊' : '🔇'}</span>
               <span id="btn-sound-text">${audioAktif ? 'Suara Aktif' : 'Suara Senyap'}</span>
+            </button>
+
+            <!-- Tombol Mode Gelap -->
+            <button
+              id="btn-dark-toggle"
+              class="btn-sound-toggle ${gelapAktif ? '' : 'is-muted'}"
+              type="button"
+              aria-label="${gelapAktif ? 'Mode gelap aktif, ketuk untuk mode terang' : 'Mode terang aktif, ketuk untuk mode gelap'}"
+            >
+              <span aria-hidden="true" style="font-size: 15px;" id="btn-dark-icon">${gelapAktif ? '☀️' : '🌙'}</span>
+              <span id="btn-dark-text">${gelapAktif ? 'Mode Terang' : 'Mode Gelap'}</span>
             </button>
 
             <!-- Tombol Area Orang Tua (Long-press 2.5s - 4.0a, 4.0c) -->
@@ -342,6 +357,35 @@ export class LayarBeranda implements Layar {
       btnSound.addEventListener('click', handleToggleSound);
       this.unbindCleanups.push(() => {
         btnSound.removeEventListener('click', handleToggleSound);
+      });
+    }
+
+    // Pasang Tombol Mode Gelap
+    const btnDark = host.querySelector<HTMLButtonElement>('#btn-dark-toggle');
+    const btnDarkIcon = host.querySelector<HTMLElement>('#btn-dark-icon');
+    const btnDarkText = host.querySelector<HTMLElement>('#btn-dark-text');
+    if (btnDark) {
+      const handleToggleDark = () => {
+        const baru = !isModeGelap();
+        terapkanModeGelap(baru);
+        simpanPreferensiOrangTua({ modeGelap: baru });
+        btnDark.classList.toggle('is-muted', !baru);
+        btnDark.setAttribute(
+          'aria-label',
+          baru
+            ? 'Mode gelap aktif, ketuk untuk mode terang'
+            : 'Mode terang aktif, ketuk untuk mode gelap'
+        );
+        if (btnDarkIcon) {
+          btnDarkIcon.textContent = baru ? '☀️' : '🌙';
+        }
+        if (btnDarkText) {
+          btnDarkText.textContent = baru ? 'Mode Terang' : 'Mode Gelap';
+        }
+      };
+      btnDark.addEventListener('click', handleToggleDark);
+      this.unbindCleanups.push(() => {
+        btnDark.removeEventListener('click', handleToggleDark);
       });
     }
 

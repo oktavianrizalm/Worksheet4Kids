@@ -1,5 +1,6 @@
 import { cariManifestAudio } from './manifest';
 import { getPreferensiOrangTua, simpanPreferensiOrangTua } from '../preferensi';
+import { inisialisasiMusikLatar } from './musik-latar';
 
 let audioCtx: AudioContext | null = null;
 let isUnlocked = false;
@@ -48,6 +49,8 @@ export async function unlockAudio(): Promise<void> {
     source.connect(ctx.destination);
     source.start(0);
     isUnlocked = true;
+    // Mulai musik latar setelah audio unlocked
+    inisialisasiMusikLatar();
   } catch (err) {
     console.warn('Gagal melakukan unlock audio:', err);
   }

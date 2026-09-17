@@ -1,5 +1,7 @@
 import { Layar } from '../shell/tipe';
 import { isAudioInstruksiAktif, setAudioInstruksiAktif } from '../audio/engine';
+import { terapkanModeGelap, isModeGelap } from '../tokens';
+import { simpanPreferensiOrangTua } from '../preferensi';
 
 export interface OpsiAreaOrangTua {
   onKembali: () => void;
@@ -23,6 +25,7 @@ export class LayarAreaOrangTua implements Layar {
   mount(host: HTMLElement): void {
     this.host = host;
     const audioAktif = isAudioInstruksiAktif();
+    const gelapAktif = isModeGelap();
 
     let devSectionHtml = '';
     if (import.meta.env.DEV) {
@@ -55,6 +58,18 @@ export class LayarAreaOrangTua implements Layar {
                 <p class="sakelar-keterangan">Memutar rekaman narasi petunjuk untuk setiap latihan.</p>
               </div>
               <input type="checkbox" id="sakelar-audio" class="sakelar-input" ${audioAktif ? 'checked' : ''} />
+            </div>
+          </section>
+
+          <!-- Pengaturan Mode Gelap -->
+          <section class="kartu-panduan">
+            <h2 class="kartu-panduan-judul">Mode Gelap 🌙</h2>
+            <div class="sakelar-baris">
+              <div>
+                <label for="sakelar-gelap" class="sakelar-label">Tampilan Gelap</label>
+                <p class="sakelar-keterangan">Menggunakan latar belakang gelap yang lembut untuk kenyamanan mata anak saat bermain di ruangan redup.</p>
+              </div>
+              <input type="checkbox" id="sakelar-gelap" class="sakelar-input" ${gelapAktif ? 'checked' : ''} />
             </div>
           </section>
 
@@ -96,6 +111,7 @@ export class LayarAreaOrangTua implements Layar {
 
     const btnKembali = host.querySelector<HTMLButtonElement>('#btn-kembali-ke-beranda');
     const sakelarAudio = host.querySelector<HTMLInputElement>('#sakelar-audio');
+    const sakelarGelap = host.querySelector<HTMLInputElement>('#sakelar-gelap');
 
     const handleKembali = () => {
       this.opsi.onKembali();
@@ -107,12 +123,21 @@ export class LayarAreaOrangTua implements Layar {
       }
     };
 
+    const handleToggleGelap = () => {
+      if (sakelarGelap) {
+        terapkanModeGelap(sakelarGelap.checked);
+        simpanPreferensiOrangTua({ modeGelap: sakelarGelap.checked });
+      }
+    };
+
     btnKembali?.addEventListener('click', handleKembali);
     sakelarAudio?.addEventListener('change', handleToggleAudio);
+    sakelarGelap?.addEventListener('change', handleToggleGelap);
 
     this.unbindListeners = () => {
       btnKembali?.removeEventListener('click', handleKembali);
       sakelarAudio?.removeEventListener('change', handleToggleAudio);
+      sakelarGelap?.removeEventListener('change', handleToggleGelap);
     };
   }
 

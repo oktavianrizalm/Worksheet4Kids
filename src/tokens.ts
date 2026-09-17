@@ -129,7 +129,7 @@ export function getCssVariablesString(): string {
     }
 
     @media (prefers-color-scheme: dark) {
-      :root {
+      :root:not(.mode-terang) {
         --app-bg: ${TOKENS.chrome.bgDark};
         --app-surface: ${TOKENS.chrome.surfaceDark};
         --app-text: ${TOKENS.chrome.textMainDark};
@@ -140,6 +140,18 @@ export function getCssVariablesString(): string {
         /* Area kerja tempat objek gambar tetap putih murni seperti kertas */
         --work-area-bg: #FFFFFF;
       }
+    }
+
+    /* Mode Gelap Manual (diaktifkan orang tua via tombol/sakelar) */
+    html.mode-gelap {
+      --app-bg: ${TOKENS.chrome.bgDark};
+      --app-surface: ${TOKENS.chrome.surfaceDark};
+      --app-text: ${TOKENS.chrome.textMainDark};
+      --app-text-muted: ${TOKENS.chrome.textMutedDark};
+      --app-border: ${TOKENS.chrome.cardBorderDark};
+      --app-shadow: ${TOKENS.chrome.shadowOffsetDark};
+      --app-shadow-sm: ${TOKENS.chrome.shadowOffsetSmDark};
+      --work-area-bg: #FFFFFF;
     }
   `;
 }
@@ -157,4 +169,33 @@ export function injectTokens(): void {
     document.head.prepend(styleEl);
   }
   styleEl.textContent = getCssVariablesString();
+}
+
+/**
+ * Menerapkan atau menonaktifkan mode gelap secara manual.
+ * Toggle class `mode-gelap` pada <html> dan perbarui <meta name="theme-color">.
+ */
+export function terapkanModeGelap(aktif: boolean): void {
+  if (typeof document === 'undefined') return;
+  const html = document.documentElement;
+  if (aktif) {
+    html.classList.add('mode-gelap');
+    html.classList.remove('mode-terang');
+  } else {
+    html.classList.remove('mode-gelap');
+    html.classList.add('mode-terang');
+  }
+  // Update theme-color meta tag
+  const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+  if (meta) {
+    meta.content = aktif ? TOKENS.chrome.bgDark : TOKENS.chrome.bg;
+  }
+}
+
+/**
+ * Mengembalikan apakah mode gelap sedang aktif berdasarkan class pada <html>.
+ */
+export function isModeGelap(): boolean {
+  if (typeof document === 'undefined') return false;
+  return document.documentElement.classList.contains('mode-gelap');
 }
