@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.2-646CFF.svg?style=flat-square&logo=vite)](https://vitejs.dev/)
 [![PWA Ready](https://img.shields.io/badge/PWA-100%25_Offline-10B981.svg?style=flat-square)](https://web.dev/progressive-web-apps/)
-[![Tests](https://img.shields.io/badge/Tests-25_Passed_(100%25)-success.svg?style=flat-square&logo=vitest)](https://vitest.dev/)
+[![Tests](https://img.shields.io/badge/Tests-26_Passed_(100%25)-success.svg?style=flat-square&logo=vitest)](https://vitest.dev/)
 [![License](https://img.shields.io/badge/License-MIT-purple.svg?style=flat-square)](LICENSE)
 
 <br/>
@@ -30,6 +30,11 @@
  - Warna-warni pastel yang nyaman untuk mata anak dan orang tua.
  - Kartu-kartu empuk (*chunky cards*) dengan lis tebal ceria dan animasi membal saat ditekan (*card bounce*).
  - Banner instruksi melayang berukuran besar dengan emoji penunjuk 👉 yang sangat mudah dibaca.
+- 🌙 **Mode Gelap (*Dark Mode*) Nyaman Mata**:
+  - Sakelar cepat di beranda dan panel Area Orang Tua untuk meredupkan cahaya layar saat bermain di ruangan redup.
+  - Area kanvas kerja objek tetap putih murni (*clean paper canvas*) agar kontras warna dan bentuk SVG tetap optimal.
+- 🎵 **Musik Latar Ceria (*Background Music*)**:
+  - Alunan musik instrumental ceria dan lembut yang dapat dihidupkan/dimatikan kapan saja secara mandiri tanpa memotong kejelasan narasi instruksi.
 - 🖐️ **Ergonomi Sentuhan Khusus Balita**:
  - **Palm Rejection**: Menolak sentuhan telapak tangan tak sengaja saat anak menyandarkan tangan di layar tablet.
  - **Debounce**: Mencegah ketukan ganda atau pantulan cepat (*rapid double tap*).
@@ -57,15 +62,15 @@
 | :---: | :---: |
 | ![Besar dan Kecil](docs/screenshots/game-besar-kecil.png) | ![Ikuti Garis](docs/screenshots/game-ikuti-garis.png) |
 
-| 12. Warnai Sesuai Contoh |
-| :---: |
-| ![Warnai Sesuai Contoh](docs/screenshots/game-warnai-contoh.png) |
+| 12. Warnai Sesuai Contoh | 13. Tulis Abjad & Angka |
+| :---: | :---: |
+| ![Warnai Sesuai Contoh](docs/screenshots/game-warnai-contoh.png) | ![Tulis Abjad & Angka](docs/screenshots/game-tulis-abjad-angka.png) |
 
 </div>
 
 ---
 
-## 🎯 Daftar 12 Modul Latihan
+## 🎯 Daftar 13 Modul Latihan
 
 | No | Modul Latihan | Tipe Interaksi | Keterangan Pedagogis |
 | :-: | :--- | :---: | :--- |
@@ -81,6 +86,7 @@
 | **10** | **Lingkari Semua Sama** | Multi-Target (8 Slot) | Mencari 3 target yang sama dengan contoh dari 8 slot menggunakan stempel lingkaran. |
 | **11** | **Ikuti Garis** | *Finger Tracing* | Menelusuri jalur kurva halus dengan koridor toleransi 75px ramah motorik balita. |
 | **12** | **Warnai Sesuai Contoh** | Kanvas Mewarnai | Meniru warna contoh dengan memilih warna palet lalu menyentuh kanvas outline. |
+| **13** | **Tulis Abjad & Angka** | *Finger Tracing* Huruf/Angka | Menelusuri bentuk abjad & angka melalui panduan garis putus-putus dengan toleransi 80px ramah balita. |
 
 ---
 
@@ -93,14 +99,17 @@
  - Sentuh kartu pilihan yang sesuai dengan petunjuk soal.
  - Pada latihan **Ikuti Garis**, usap jari mengikuti garis putus-putus dari awal ke tujuan.
  - Pada latihan **Warnai Contoh**, pilih warna di bilah bawah lalu sentuh gambar kanvas.
+ - Pada latihan **Tulis Abjad & Angka**, telusuri garis putus-putus huruf atau angka mulai dari titik hijau `👆` hingga bintang `⭐️`.
 4. **Bantuan & Lewati**: Sentuh tombol **💡 Bantuan** jika butuh petunjuk, atau sentuh **Lewati ≫** untuk melanjutkan ke soal berikutnya.
 
 ### 👨‍👩‍👧 Untuk Orang Tua / Pendidik:
 1. **Mengunci Layar Tablet**:
  - **Apple iPad (iOS)**: Aktifkan **Guided Access** (*Akses Terpandu*) di setelan aksesibilitas, lalu tekan tombol daya 3× saat membuka webapp.
  - **Android Tablet**: Aktifkan **App Pinning** (*Sematkan Aplikasi*) pada menu *Recent Apps* tablet Anda.
-2. **Pengaturan Suara**:
- - Sakelar suara instan tersedia di header beranda (**🔊 Suara Aktif** / **🔇 Suara Senyap**).
+2. **Pengaturan Suara, Musik, & Mode Gelap**:
+ - Sakelar suara narasi instan (**🔊 Suara Aktif** / **🔇 Suara Senyap**).
+ - Sakelar musik latar ceria (**🎵 Musik Aktif** / **🔇 Musik Mati**).
+ - Sakelar mode gelap (**🌙 Mode Gelap** / **☀️ Mode Terang**) untuk kenyamanan mata anak di tempat redup.
 3. **Membuka Area Orang Tua**:
  - Tekan dan tahan tombol **⚙️ Orang Tua (Tahan 2.5s)** selama 2.5 detik hingga cincin progres terisi penuh.
 

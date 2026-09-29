@@ -5,8 +5,8 @@ import { PRNG } from '../src/random/prng';
 import { areSimilar } from '../src/random/similarity';
 
 describe('SesiLatihan - Minimal 10 Soal per Sesi & Kontrak Navigasi', () => {
-  it('Memastikan seluruh 12 jenis latihan menghasilkan minimal 10 soal per sesi', () => {
-    expect(Object.keys(DAFTAR_LATIHAN).length).toBe(12);
+  it('Memastikan seluruh 13 jenis latihan menghasilkan minimal 10 soal per sesi', () => {
+    expect(Object.keys(DAFTAR_LATIHAN).length).toBe(13);
 
     for (const [id, generator] of Object.entries(DAFTAR_LATIHAN)) {
       for (let s = 1; s <= 20; s++) {

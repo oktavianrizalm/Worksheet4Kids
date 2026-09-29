@@ -53,7 +53,7 @@ describe('Test Kontrak Generik Generator Latihan (5.0e, 5.1a, 5.1b)', () => {
             ? 2
             : generator.id === 'lingkari-semua-yang-sama'
               ? 3
-              : generator.id === 'ikuti-garis'
+              : generator.id === 'ikuti-garis' || generator.id === 'tulis-abjad-angka'
                 ? 0
                 : 1;
         expect(jumlahBenar).toBe(targetJumlahBenar);
@@ -71,7 +71,7 @@ describe('Test Kontrak Generik Generator Latihan (5.0e, 5.1a, 5.1b)', () => {
         } else if (generator.id === 'lingkari-semua-yang-sama') {
           expect(soal.pilihan.length).toBe(8);
           expect(jumlahBenar).toBe(3);
-        } else if (generator.id === 'ikuti-garis') {
+        } else if (generator.id === 'ikuti-garis' || generator.id === 'tulis-abjad-angka') {
           expect(soal.jalurGaris).toBeDefined();
           expect(soal.jalurGaris?.d).toBeDefined();
         } else if (generator.id === 'warnai-seperti-contoh') {

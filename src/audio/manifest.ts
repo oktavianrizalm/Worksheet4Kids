@@ -153,6 +153,14 @@ export const AUDIO_MANIFEST: readonly AudioInstructionEntry[] = [
     namaBerkas: 'warnai-seperti-contoh.default.mp3',
     tahap: 5,
   },
+  {
+    audioId: 'tulis-abjad-angka.default',
+    idLatihan: 'tulis-abjad-angka',
+    varian: 'default',
+    teksInstruksi: 'Telusuri garis abjad atau angka ini dengan jarimu dari titik awal.',
+    namaBerkas: 'tulis-abjad-angka.default.mp3',
+    tahap: 5,
+  },
 ] as const;
 
 export function cariManifestAudio(audioId: string): AudioInstructionEntry | undefined {

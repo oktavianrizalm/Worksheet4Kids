@@ -23,6 +23,9 @@ export interface JalurGaris {
   readonly objekAwal: ObjectId;
   readonly objekAkhir: ObjectId;
   readonly warnaJalur: PaletteColorKey;
+  readonly karakter?: string; // e.g. "A", "2"
+  readonly jenisKarakter?: 'abjad' | 'angka';
+  readonly labelKarakter?: string; // e.g. "Huruf A", "Angka 2"
 }
 
 export interface Soal {

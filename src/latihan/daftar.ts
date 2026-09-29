@@ -12,9 +12,10 @@ import { generatorHitungGambarnya } from './gen/09-hitung-gambarnya';
 import { generatorLingkariSemuaYangSama } from './gen/10-lingkari-semua-yang-sama';
 import { generatorIkutiGaris } from './gen/11-ikuti-garis';
 import { generatorWarnaiSepertiContoh } from './gen/12-warnai-seperti-contoh';
+import { generatorTulisAbjadAngka } from './gen/13-tulis-abjad-angka';
 
 /**
- * Registry Latihan: Seluruh 12 Latihan (#1 s.d. #12)
+ * Registry Latihan: Seluruh 13 Latihan (#1 s.d. #13)
  */
 export const DAFTAR_LATIHAN: Record<string, GeneratorLatihan> = {
   // Tahap 3: 5 Latihan Tekan-Pilih Pertama
@@ -31,9 +32,10 @@ export const DAFTAR_LATIHAN: Record<string, GeneratorLatihan> = {
   'hitung-gambarnya': generatorHitungGambarnya,
   'lingkari-semua-yang-sama': generatorLingkariSemuaYangSama,
 
-  // Tahap 5: 2 Latihan Gerak Jari
+  // Tahap 5: 3 Latihan Gerak Jari & Menulis
   'ikuti-garis': generatorIkutiGaris,
   'warnai-seperti-contoh': generatorWarnaiSepertiContoh,
+  'tulis-abjad-angka': generatorTulisAbjadAngka,
 };
 
 export function ambilGeneratorLatihan(id: string): GeneratorLatihan | undefined {

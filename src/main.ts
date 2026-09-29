@@ -11,6 +11,7 @@ import { SesiLatihan } from './latihan/sesi';
 import { MesinPilihSatu } from './latihan/mesin-pilih-satu';
 import { MesinIkutiGaris } from './latihan/mesin-ikuti-garis';
 import { MesinWarnaiContoh } from './latihan/mesin-warnai-contoh';
+import { MesinTulisAbjadAngka } from './latihan/mesin-tulis-abjad-angka';
 import { ambilGeneratorLatihan } from './latihan/daftar';
 import { Layar } from './shell/tipe';
 import { getPreferensiOrangTua } from './preferensi';
@@ -70,6 +71,13 @@ if (import.meta.env.DEV && (urlParams.has('galeri') || urlParams.has('dev'))) {
       });
     } else if (idLatihan === 'warnai-seperti-contoh') {
       layarLatihan = new MesinWarnaiContoh({
+        sesi,
+        onKembaliKeBeranda: () => {
+          bukaBeranda();
+        },
+      });
+    } else if (idLatihan === 'tulis-abjad-angka') {
+      layarLatihan = new MesinTulisAbjadAngka({
         sesi,
         onKembaliKeBeranda: () => {
           bukaBeranda();

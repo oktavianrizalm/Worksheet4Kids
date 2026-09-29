@@ -203,6 +203,20 @@ const DAFTAR_KARTU: readonly KartuLatihanDef[] = [
     mode: 'warna',
     aktif: true,
   },
+  {
+    id: 'tulis-abjad-angka',
+    nomor: 13,
+    judul: 'Tulis Abjad & Angka',
+    tag: 'Abjad & Angka',
+    borderColor: '#5EEAD4',
+    numBg: '#0D9488',
+    tagBg: '#CCFBF1',
+    tagColor: '#115E59',
+    objek: 'matahari',
+    warna: 'kuning',
+    mode: 'warna',
+    aktif: true,
+  },
 ];
 
 /**
