@@ -12,6 +12,9 @@ import { MesinPilihSatu } from './latihan/mesin-pilih-satu';
 import { MesinIkutiGaris } from './latihan/mesin-ikuti-garis';
 import { MesinWarnaiContoh } from './latihan/mesin-warnai-contoh';
 import { MesinTulisAbjadAngka } from './latihan/mesin-tulis-abjad-angka';
+import { MesinLabirinSederhana } from './latihan/mesin-labirin-sederhana';
+import { MesinPuzzlePotongan } from './latihan/mesin-puzzle-potongan';
+import { MesinBagianHilang } from './latihan/mesin-bagian-hilang';
 import { ambilGeneratorLatihan } from './latihan/daftar';
 import { Layar } from './shell/tipe';
 import { getPreferensiOrangTua } from './preferensi';
@@ -82,6 +85,27 @@ if (import.meta.env.DEV && (urlParams.has('galeri') || urlParams.has('dev'))) {
       });
     } else if (idLatihan === 'tulis-abjad-angka') {
       layarLatihan = new MesinTulisAbjadAngka({
+        sesi,
+        onKembaliKeBeranda: () => {
+          bukaBeranda();
+        },
+      });
+    } else if (idLatihan === 'labirin-sederhana') {
+      layarLatihan = new MesinLabirinSederhana({
+        sesi,
+        onKembaliKeBeranda: () => {
+          bukaBeranda();
+        },
+      });
+    } else if (idLatihan === 'puzzle-potongan') {
+      layarLatihan = new MesinPuzzlePotongan({
+        sesi,
+        onKembaliKeBeranda: () => {
+          bukaBeranda();
+        },
+      });
+    } else if (idLatihan === 'bagian-yang-hilang') {
+      layarLatihan = new MesinBagianHilang({
         sesi,
         onKembaliKeBeranda: () => {
           bukaBeranda();

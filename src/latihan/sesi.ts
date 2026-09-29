@@ -79,9 +79,10 @@ export class SesiLatihan {
           }
         }
 
-        // 2. Aturan Anti-Bias Posisi: Indeks jawaban benar tidak boleh sama 3 kali berturut-turut
+        // 2. Aturan Anti-Bias Posisi: Indeks jawaban benar tidak boleh sama 3 kali berturut-turut (hanya jika ada pilihan ganda)
         const indeksBenar = kandidat.pilihan.findIndex((p) => p.benar);
         if (
+          indeksBenar !== -1 &&
           historyPosisiBenar.length >= 2 &&
           historyPosisiBenar[historyPosisiBenar.length - 1] === indeksBenar &&
           historyPosisiBenar[historyPosisiBenar.length - 2] === indeksBenar
@@ -90,7 +91,9 @@ export class SesiLatihan {
         }
 
         soalValid = kandidat;
-        historyPosisiBenar.push(indeksBenar);
+        if (indeksBenar !== -1) {
+          historyPosisiBenar.push(indeksBenar);
+        }
         break;
       }
 

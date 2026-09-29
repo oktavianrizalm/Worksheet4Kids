@@ -7,7 +7,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-6.2-646CFF.svg?style=flat-square&logo=vite)](https://vitejs.dev/)
 [![PWA Ready](https://img.shields.io/badge/PWA-100%25_Offline-10B981.svg?style=flat-square)](https://web.dev/progressive-web-apps/)
-[![Tests](https://img.shields.io/badge/Tests-26_Passed_(100%25)-success.svg?style=flat-square&logo=vitest)](https://vitest.dev/)
+[![Tests](https://img.shields.io/badge/Tests-29_Passed_(100%25)-success.svg?style=flat-square&logo=vitest)](https://vitest.dev/)
 [![License](https://img.shields.io/badge/License-MIT-purple.svg?style=flat-square)](LICENSE)
 
 <br/>
@@ -62,15 +62,19 @@
 | :---: | :---: |
 | ![Besar dan Kecil](docs/screenshots/game-besar-kecil.png) | ![Ikuti Garis](docs/screenshots/game-ikuti-garis.png) |
 
-| 12. Warnai Sesuai Contoh | 13. Tulis Abjad & Angka |
+| 13. Tulis Abjad & Angka | 14. Labirin Ceria |
 | :---: | :---: |
-| ![Warnai Sesuai Contoh](docs/screenshots/game-warnai-contoh.png) | ![Tulis Abjad & Angka](docs/screenshots/game-tulis-abjad-angka.png) |
+| ![Tulis Abjad & Angka](docs/screenshots/game-tulis-abjad-angka.png) | ![Labirin Ceria](docs/screenshots/game-labirin-sederhana.png) |
+
+| 15. Puzzle Potongan | 16. Bagian yang Hilang |
+| :---: | :---: |
+| ![Puzzle Potongan](docs/screenshots/game-puzzle-potongan.png) | ![Bagian yang Hilang](docs/screenshots/game-bagian-hilang.png) |
 
 </div>
 
 ---
 
-## 🎯 Daftar 13 Modul Latihan
+## 🎯 Daftar 16 Modul Latihan
 
 | No | Modul Latihan | Tipe Interaksi | Keterangan Pedagogis |
 | :-: | :--- | :---: | :--- |
@@ -87,12 +91,15 @@
 | **11** | **Ikuti Garis** | *Finger Tracing* | Menelusuri jalur kurva halus dengan koridor toleransi 75px ramah motorik balita. |
 | **12** | **Warnai Sesuai Contoh** | Kanvas Mewarnai | Meniru warna contoh dengan memilih warna palet lalu menyentuh kanvas outline. |
 | **13** | **Tulis Abjad & Angka** | *Finger Tracing* Huruf/Angka | Menelusuri bentuk abjad & angka melalui panduan garis putus-putus dengan toleransi 80px ramah balita. |
+| **14** | **Labirin Ceria** | *Maze Runner* Spasial | Menemukan jalan melewati lorong labirin berdinding empuk dari titik start ke tujuan (ideal untuk 4–5 tahun). |
+| **15** | **Puzzle Potongan** | *Jigsaw Drag & Tap* | Menyusun potongan gambar menjadi utuh dengan sistem interlocking tab-and-notch (2, 3, & 4 potongan untuk usia 4–5 tahun). |
+| **16** | **Bagian yang Hilang** | Tekan-Pilih (4 Patch Bulat) | Menemukan potongan bundar yang hilang untuk melengkapi gambar objek (*visual closure* & *detail focus*). |
 
 ---
 
 ## 📖 Panduan Penggunaan
 
-### 👶 Untuk Anak (Balita):
+### 👶 Untuk Anak (Balita & Prasekolah):
 1. **Pilih Permainan**: Di layar utama, sentuh salah satu kartu warna-warni yang disukai.
 2. **Dengarkan Petunjuk**: Sentuh tombol **🔊 Dengarkan** di kanan atas untuk mendengar suara instruksi narasi.
 3. **Mulai Belajar**:
@@ -100,6 +107,9 @@
  - Pada latihan **Ikuti Garis**, usap jari mengikuti garis putus-putus dari awal ke tujuan.
  - Pada latihan **Warnai Contoh**, pilih warna di bilah bawah lalu sentuh gambar kanvas.
  - Pada latihan **Tulis Abjad & Angka**, telusuri garis putus-putus huruf atau angka mulai dari titik hijau `👆` hingga bintang `⭐️`.
+ - Pada latihan **Labirin Ceria**, pandu karakter menelusuri lorong jalan yang benar hingga sampai ke tujuan.
+ - Pada latihan **Puzzle Potongan**, geser potongan gambar dari baki atau sentuh potongan lalu sentuh slotnya di kotak target.
+ - Pada latihan **Bagian yang Hilang**, perhatikan lubang bertanda '?' pada gambar lalu tekan potongan bundar yang cocok untuk melengkapinya.
 4. **Bantuan & Lewati**: Sentuh tombol **💡 Bantuan** jika butuh petunjuk, atau sentuh **Lewati ≫** untuk melanjutkan ke soal berikutnya.
 
 ### 👨‍👩‍👧 Untuk Orang Tua / Pendidik:

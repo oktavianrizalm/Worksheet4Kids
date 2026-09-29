@@ -13,9 +13,12 @@ import { generatorLingkariSemuaYangSama } from './gen/10-lingkari-semua-yang-sam
 import { generatorIkutiGaris } from './gen/11-ikuti-garis';
 import { generatorWarnaiSepertiContoh } from './gen/12-warnai-seperti-contoh';
 import { generatorTulisAbjadAngka } from './gen/13-tulis-abjad-angka';
+import { generatorLabirinSederhana } from './gen/14-labirin-sederhana';
+import { generatorPuzzlePotongan } from './gen/15-puzzle-potongan';
+import { generatorBagianYangHilang } from './gen/16-bagian-yang-hilang';
 
 /**
- * Registry Latihan: Seluruh 13 Latihan (#1 s.d. #13)
+ * Registry Latihan: Seluruh 16 Latihan (#1 s.d. #16)
  */
 export const DAFTAR_LATIHAN: Record<string, GeneratorLatihan> = {
   // Tahap 3: 5 Latihan Tekan-Pilih Pertama
@@ -32,10 +35,13 @@ export const DAFTAR_LATIHAN: Record<string, GeneratorLatihan> = {
   'hitung-gambarnya': generatorHitungGambarnya,
   'lingkari-semua-yang-sama': generatorLingkariSemuaYangSama,
 
-  // Tahap 5: 3 Latihan Gerak Jari & Menulis
+  // Tahap 5: 6 Latihan Gerak Jari, Menulis, Labirin, Puzzle, & Bagian Hilang
   'ikuti-garis': generatorIkutiGaris,
   'warnai-seperti-contoh': generatorWarnaiSepertiContoh,
   'tulis-abjad-angka': generatorTulisAbjadAngka,
+  'labirin-sederhana': generatorLabirinSederhana,
+  'puzzle-potongan': generatorPuzzlePotongan,
+  'bagian-yang-hilang': generatorBagianYangHilang,
 };
 
 export function ambilGeneratorLatihan(id: string): GeneratorLatihan | undefined {

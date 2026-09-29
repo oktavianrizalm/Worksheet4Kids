@@ -742,3 +742,352 @@ html.mode-gelap .slot-placeholder-pola {
   border-color: #6B21A8;
   color: #D8B4FE;
 }
+
+/* ==========================================================================
+   LATIHAN #15: PUZZLE POTONGAN SEDERHANA (Bongkar Pasang Jigsaw)
+   ========================================================================== */
+.area-permainan-puzzle {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 8px 16px;
+  touch-action: none;
+}
+
+@media (max-width: 680px) {
+  .area-permainan-puzzle {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.kontainer-papan-puzzle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.bingkai-papan-puzzle {
+  width: 320px;
+  height: 320px;
+  background-color: #FFFFFF;
+  border: 4.5px solid #C7D2FE;
+  border-radius: 30px;
+  box-shadow: 0 12px 30px -4px rgba(99, 102, 241, 0.22);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-papan-kanvas {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.label-info-papan {
+  font-size: 14px;
+  font-weight: 800;
+  color: #475569;
+  text-align: center;
+}
+
+.badge-varian-puzzle {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background-color: #FFE4E6;
+  color: #BE123C;
+  border: 1.5px solid #FDA4AF;
+  margin-left: 8px;
+}
+
+.kontainer-baki-puzzle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  background: #F8FAFC;
+  border: 3.5px solid #CBD5E1;
+  border-radius: 28px;
+  padding: 16px 22px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-baki-puzzle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.judul-baki {
+  font-size: 15px;
+  font-weight: 900;
+  color: #1E293B;
+}
+
+.petunjuk-sentuh {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748B;
+}
+
+.grid-baki-potongan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+  max-width: 290px;
+}
+
+.kartu-potongan-puzzle {
+  background: #FFFFFF;
+  border: 3.5px solid #334155;
+  border-radius: 20px;
+  padding: 6px;
+  box-shadow: 0 6px 0 #334155, 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+}
+
+.kartu-potongan-puzzle:active {
+  cursor: grabbing;
+  transform: translateY(3px) scale(0.98);
+  box-shadow: 0 3px 0 #334155;
+}
+
+.kartu-potongan-puzzle.terpilih {
+  border-color: #EAB308;
+  box-shadow: 0 0 0 4px #FDE047, 0 6px 0 #CA8A04;
+  transform: scale(1.08);
+  animation: pulsePilih 1.2s infinite ease-in-out;
+}
+
+.kartu-potongan-puzzle.kartu-terpasang {
+  opacity: 0.15;
+  pointer-events: none;
+  transform: scale(0.85);
+  box-shadow: 0 2px 0 #94A3B8;
+  border-color: #94A3B8;
+}
+
+.svg-potongan-baki {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.kartu-drag-melayang {
+  position: fixed !important;
+  z-index: 9999 !important;
+  pointer-events: none !important;
+  transform: scale(1.12) rotate(3deg);
+  filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.28));
+}
+
+.slot-hover-snap .slot-border-outline {
+  stroke: #10B981 !important;
+  stroke-width: 4 !important;
+  fill: #D1FAE5 !important;
+  fill-opacity: 0.8 !important;
+}
+
+.slot-menunggu .slot-border-outline {
+  stroke: #F59E0B !important;
+  stroke-width: 3.5 !important;
+  stroke-dasharray: 4 4 !important;
+  animation: pulseSlot 1.2s infinite;
+}
+
+@keyframes pulsePilih {
+  0%, 100% {
+    transform: scale(1.06);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes pulseSlot {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes shakeLembut {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}
+
+.anim-shake-lembut {
+  animation: shakeLembut 0.35s ease;
+}
+
+.anim-pulse-bantuan .slot-border-outline {
+  stroke: #EC4899 !important;
+  stroke-width: 4.5 !important;
+  stroke-dasharray: none !important;
+  fill: #FCE7F3 !important;
+  fill-opacity: 0.85 !important;
+  animation: pulseBantuan 0.6s infinite alternate;
+}
+
+@keyframes pulseBantuan {
+  0% { transform: scale(0.97); }
+  100% { transform: scale(1.03); }
+}
+
+/* Dark Mode Puzzle Adaptations */
+html.mode-gelap .bingkai-papan-puzzle {
+  border-color: #4338CA;
+  box-shadow: 0 10px 25px -4px rgba(67, 56, 202, 0.3);
+}
+
+html.mode-gelap .kontainer-baki-puzzle {
+  background: #1E293B;
+  border-color: #334155;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+html.mode-gelap .judul-baki {
+  color: #F1F5F9;
+}
+
+html.mode-gelap .petunjuk-sentuh {
+  color: #94A3B8;
+}
+
+html.mode-gelap .label-info-papan {
+  color: #94A3B8;
+}
+
+/* ==========================================================================
+   LATIHAN #16: BAGIAN YANG HILANG (Find the Missing Piece)
+   ========================================================================== */
+.area-bagian-hilang {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 8px 16px;
+}
+
+.bingkai-gambar-utama {
+  width: 250px;
+  height: 250px;
+  background-color: #FFFFFF;
+  border: 4.5px solid #7DD3FC;
+  border-radius: 28px;
+  box-shadow: 0 12px 28px -4px rgba(56, 189, 248, 0.22);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-gambar-papan {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.kontainer-pilihan-bagian {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.label-pilihan-bawah {
+  font-size: 13px;
+  font-weight: 800;
+  color: #475569;
+  text-align: center;
+}
+
+.baris-kartu-pilihan-bagian {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.kartu-pilihan-bagian {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 3.5px solid #334155;
+  box-shadow: 0 6px 0 #334155, 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+}
+
+.kartu-pilihan-bagian:active {
+  transform: translateY(3px) scale(0.96);
+  box-shadow: 0 3px 0 #334155;
+}
+
+.kartu-pilihan-bagian.pilihan-benar-sukses {
+  border-color: #10B981 !important;
+  box-shadow: 0 0 0 5px #A7F3D0, 0 6px 0 #059669 !important;
+  transform: scale(1.12) !important;
+}
+
+.kartu-pilihan-bagian.bantuan-highlight-pulse {
+  border-color: #F59E0B !important;
+  box-shadow: 0 0 0 5px #FDE68A, 0 6px 0 #D97706 !important;
+  animation: pulsePilih 1s infinite alternate;
+}
+
+.svg-patch-bulat {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Dark Mode Bagian Hilang Adaptations */
+html.mode-gelap .bingkai-gambar-utama {
+  border-color: #0284C7;
+  box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.3);
+}
+
+html.mode-gelap .label-pilihan-bawah {
+  color: #94A3B8;
+}

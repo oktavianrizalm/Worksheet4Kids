@@ -53,7 +53,7 @@ describe('Test Kontrak Generik Generator Latihan (5.0e, 5.1a, 5.1b)', () => {
             ? 2
             : generator.id === 'lingkari-semua-yang-sama'
               ? 3
-              : generator.id === 'ikuti-garis' || generator.id === 'tulis-abjad-angka'
+              : generator.id === 'ikuti-garis' || generator.id === 'tulis-abjad-angka' || generator.id === 'labirin-sederhana' || generator.id === 'puzzle-potongan'
                 ? 0
                 : 1;
         expect(jumlahBenar).toBe(targetJumlahBenar);
@@ -71,9 +71,15 @@ describe('Test Kontrak Generik Generator Latihan (5.0e, 5.1a, 5.1b)', () => {
         } else if (generator.id === 'lingkari-semua-yang-sama') {
           expect(soal.pilihan.length).toBe(8);
           expect(jumlahBenar).toBe(3);
-        } else if (generator.id === 'ikuti-garis' || generator.id === 'tulis-abjad-angka') {
+        } else if (generator.id === 'ikuti-garis' || generator.id === 'tulis-abjad-angka' || generator.id === 'labirin-sederhana') {
           expect(soal.jalurGaris).toBeDefined();
           expect(soal.jalurGaris?.d).toBeDefined();
+        } else if (generator.id === 'puzzle-potongan') {
+          expect(soal.dataPuzzle).toBeDefined();
+          expect(soal.dataPuzzle?.potongan.length).toBeGreaterThanOrEqual(2);
+        } else if (generator.id === 'bagian-yang-hilang') {
+          expect(soal.dataBagianHilang).toBeDefined();
+          expect(soal.dataBagianHilang?.pilihanPotongan.length).toBe(4);
         } else if (generator.id === 'warnai-seperti-contoh') {
           expect(soal.warnaTarget).toBeDefined();
           expect(soal.contoh[0].mode).toBe('warna');
@@ -95,6 +101,7 @@ describe('Test Kontrak Generik Generator Latihan (5.0e, 5.1a, 5.1b)', () => {
           ...soal.pilihan.map((p) => p.objek),
           ...soal.contoh.map((c) => c.objek),
           ...(soal.jalurGaris ? [soal.jalurGaris.objekAwal, soal.jalurGaris.objekAkhir] : []),
+          ...(soal.dataPuzzle ? [soal.dataPuzzle.objek] : []),
         ]);
         expect(semuaObjekDiSoal.has(soal.objekUtama)).toBe(true);
 

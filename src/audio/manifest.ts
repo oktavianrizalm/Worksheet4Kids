@@ -161,6 +161,30 @@ export const AUDIO_MANIFEST: readonly AudioInstructionEntry[] = [
     namaBerkas: 'tulis-abjad-angka.default.mp3',
     tahap: 5,
   },
+  {
+    audioId: 'labirin-sederhana.default',
+    idLatihan: 'labirin-sederhana',
+    varian: 'default',
+    teksInstruksi: 'Bantu temukan jalan melewati labirin dari awal sampai ke tujuan!',
+    namaBerkas: 'labirin-sederhana.default.mp3',
+    tahap: 5,
+  },
+  {
+    audioId: 'puzzle-potongan.default',
+    idLatihan: 'puzzle-potongan',
+    varian: 'default',
+    teksInstruksi: 'Pasang potongan gambar pada tempat yang tepat agar utuh!',
+    namaBerkas: 'puzzle-potongan.default.mp3',
+    tahap: 5,
+  },
+  {
+    audioId: 'bagian-yang-hilang.default',
+    idLatihan: 'bagian-yang-hilang',
+    varian: 'default',
+    teksInstruksi: 'Cari potongan yang hilang agar gambarnya menjadi lengkap!',
+    namaBerkas: 'bagian-yang-hilang.default.mp3',
+    tahap: 5,
+  },
 ] as const;
 
 export function cariManifestAudio(audioId: string): AudioInstructionEntry | undefined {
