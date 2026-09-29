@@ -15,12 +15,16 @@ import { MesinTulisAbjadAngka } from './latihan/mesin-tulis-abjad-angka';
 import { ambilGeneratorLatihan } from './latihan/daftar';
 import { Layar } from './shell/tipe';
 import { getPreferensiOrangTua } from './preferensi';
+import { inject as injectAnalytics } from '@vercel/analytics';
 
 // 1. Suntikkan CSS variables dari single source of truth tokens desain
 injectTokens();
 
 // 1b. Terapkan mode gelap jika sudah pernah diaktifkan oleh orang tua
 terapkanModeGelap(getPreferensiOrangTua().modeGelap);
+
+// 1c. Inisialisasi Vercel Web Analytics (hanya aktif di lingkungan produksi Vercel)
+injectAnalytics();
 
 const appRoot = document.getElementById('app');
 if (!appRoot) {
