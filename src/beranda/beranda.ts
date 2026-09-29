@@ -239,6 +239,7 @@ export class LayarBeranda implements Layar {
 
     const audioAktif = isAudioInstruksiAktif();
     const gelapAktif = isModeGelap();
+    const musikAktif = isMusikLatarAktif();
 
     host.innerHTML = `
       <div class="beranda-page-wrapper">
@@ -260,7 +261,7 @@ export class LayarBeranda implements Layar {
             </div>
           </div>
 
-          <!-- Aksi Header: Sakelar Audio, Mode Gelap & Area Orang Tua -->
+          <!-- Aksi Header: Sakelar Audio, Musik, Mode Gelap & Area Orang Tua -->
           <div class="beranda-header-actions">
             <!-- Sakelar Audio Instruksi -->
             <button
@@ -271,6 +272,17 @@ export class LayarBeranda implements Layar {
             >
               <span aria-hidden="true" style="font-size: 15px;">${audioAktif ? '🔊' : '🔇'}</span>
               <span id="btn-sound-text">${audioAktif ? 'Suara Aktif' : 'Suara Senyap'}</span>
+            </button>
+
+            <!-- Sakelar Musik Latar -->
+            <button
+              id="btn-music-toggle"
+              class="btn-sound-toggle ${musikAktif ? '' : 'is-muted'}"
+              type="button"
+              aria-label="${musikAktif ? 'Musik latar aktif, ketuk untuk mematikan' : 'Musik latar senyap, ketuk untuk menyalakan'}"
+            >
+              <span aria-hidden="true" style="font-size: 15px;" id="btn-music-icon">${musikAktif ? '🎵' : '🔇'}</span>
+              <span id="btn-music-text">${musikAktif ? 'Musik Aktif' : 'Musik Mati'}</span>
             </button>
 
             <!-- Tombol Mode Gelap -->
@@ -386,6 +398,34 @@ export class LayarBeranda implements Layar {
       btnDark.addEventListener('click', handleToggleDark);
       this.unbindCleanups.push(() => {
         btnDark.removeEventListener('click', handleToggleDark);
+      });
+    }
+
+    // Pasang Tombol Musik Latar
+    const btnMusic = host.querySelector<HTMLButtonElement>('#btn-music-toggle');
+    const btnMusicIcon = host.querySelector<HTMLElement>('#btn-music-icon');
+    const btnMusicText = host.querySelector<HTMLElement>('#btn-music-text');
+    if (btnMusic) {
+      const handleToggleMusic = () => {
+        const baru = !isMusikLatarAktif();
+        setMusikLatarAktif(baru);
+        btnMusic.classList.toggle('is-muted', !baru);
+        btnMusic.setAttribute(
+          'aria-label',
+          baru
+            ? 'Musik latar aktif, ketuk untuk mematikan'
+            : 'Musik latar senyap, ketuk untuk menyalakan'
+        );
+        if (btnMusicIcon) {
+          btnMusicIcon.textContent = baru ? '🎵' : '🔇';
+        }
+        if (btnMusicText) {
+          btnMusicText.textContent = baru ? 'Musik Aktif' : 'Musik Mati';
+        }
+      };
+      btnMusic.addEventListener('click', handleToggleMusic);
+      this.unbindCleanups.push(() => {
+        btnMusic.removeEventListener('click', handleToggleMusic);
       });
     }
 
